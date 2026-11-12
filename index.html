@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Little Diary ♡</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- LOGIN / REGISTER -->
+    <section id="authScreen" class="auth-screen">
+        <div class="auth-card">
+            <h1>♡ My Little Diary</h1>
+            <p>A little place for our everyday memories.</p>
+
+            <h2 id="authTitle">Welcome Back ♡</h2>
+
+            <form id="authForm">
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email address"
+                    required
+                >
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                    required
+                    minlength="6"
+                >
+
+                <button type="submit" id="authSubmitBtn">
+                    Login ♡
+                </button>
+            </form>
+
+            <p id="authMessage"></p>
+
+            <p class="auth-switch">
+                Don't have an account?
+                <button type="button" id="toggleAuthBtn">
+                    Create Account
+                </button>
+            </p>
+        </div>
+    </section>
+
+
+    <!-- MAIN DASHBOARD -->
+    <div id="dashboard" class="dashboard" hidden>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <h2>♡ My Little Diary</h2>
+            <p class="sidebar-subtitle">Our little world</p>
+
+            <nav>
+                <button class="nav-btn active" data-page="home">
+                    🏡 Home
+                </button>
+
+                <button class="nav-btn" data-page="myDiary">
+                    📖 My Diary
+                </button>
+
+                <button class="nav-btn" data-page="ourDiary">
+                    ♡ Our Diary
+                </button>
+
+                <button class="nav-btn" data-page="calendar">
+                    📅 Calendar
+                </button>
+
+                <button class="nav-btn" data-page="memories">
+                    📷 Memories
+                </button>
+
+                <button class="nav-btn" data-page="settings">
+                    ⚙ Settings
+                </button>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <p id="userEmail"></p>
+                <button id="logoutBtn">Logout</button>
+            </div>
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <section id="homePage" class="page">
+                <h1>Good day ♡</h1>
+                <p>Every little moment matters.</p>
+
+                <div class="welcome-card">
+                    <h2>Welcome to your little world!</h2>
+                    <p>Keep your memories safe and close.</p>
+                </div>
+            </section>
+
+
+            <section id="myDiaryPage" class="page" hidden>
+                <h1>My Diary ♡</h1>
+                <p>Your personal thoughts and memories.</p>
+
+                <form id="diaryForm">
+                    <input type="date" id="diaryDate" required>
+
+                    <input
+                        type="text"
+                        id="diaryTitle"
+                        placeholder="Give your day a title..."
+                        required
+                    >
+
+                    <textarea
+                        id="diaryContent"
+                        placeholder="Dear Diary..."
+                        required
+                    ></textarea>
+                    
+                                        <label class="share-label">
+                        <input type="checkbox" id="shareDiary">
+                        Share with Bestie ♡
+                    </label>
+
+                    <button type="submit">Save Diary ♡</button>
+                </form>
+
+                <div id="entries">
+                    <p>Your diary entries will appear here.</p>
+                </div>
+            </section>
+
+            <!-- OUR DIARY -->
+            <section id="ourDiaryPage" class="page" hidden>
+                <h1>Our Diary ♡</h1>
+                <p>A collection of memories shared together.</p>
+
+                <div id="sharedEntries">
+                    <p>Shared memories will appear here.</p>
+                </div>
+            </section>
+
+            <!-- CALENDAR -->
+            <section id="calendarPage" class="page" hidden>
+                <div class="calendar-header">
+                    <div>
+                        <h1>Our Calendar ♡</h1>
+                        <p>Our special days and little moments.</p>
+                    </div>
+                </div>
+
+                <div class="calendar-card">
+                    <div class="calendar-toolbar">
+                        <button type="button" id="prevMonthBtn">‹</button>
+                        <h2 id="calendarMonthYear">Month Year</h2>
+                        <button type="button" id="nextMonthBtn">›</button>
+                        <button type="button" id="todayBtn">Today</button>
+                    </div>
+
+                    <div class="calendar-weekdays">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                    </div>
+
+                    <div id="calendarDays" class="calendar-days"></div>
+                </div>
+
+                <div class="calendar-legend">
+                    <span><i class="my-diary-dot"></i> My Diary</span>
+                    <span><i class="shared-diary-dot"></i> Bestie Shared</span>
+                </div>
+
+                <div class="calendar-details">
+                    <h2 id="selectedDateTitle">Select a date ♡</h2>
+                    <div id="calendarDiaryEntries">
+                        <p>Choose a date to see your diary memories.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MEMORIES -->
+            <section id="memoriesPage" class="page" hidden>
+                <h1>Memories ♡</h1>
+                <p>All your little moments in one place.</p>
+
+                <div id="memoriesEntries">
+                    <p>Your memories will appear here.</p>
+                </div>
+            </section>
+
+            <!-- SETTINGS -->
+            <section id="settingsPage" class="page" hidden>
+                <h1>Settings</h1>
+                <p>Manage your account and Bestie connection. ♡</p>
+
+                <div class="welcome-card">
+                    <h2>Invite Your Bestie ♡</h2>
+                    <p>Connect with your best friend and share your favourite memories together.</p>
+
+                    <button type="button" id="createBestieBtn">
+                        Create Invite Code ♡
+                    </button>
+
+                    <div id="bestieInviteArea" hidden>
+                        <p>Your Bestie Invite Code:</p>
+                        <h2 id="bestieInviteCode"></h2>
+                        <button type="button" id="copyBestieCodeBtn">
+                            Copy Invite Code
+                        </button>
+                    </div>
+
+                    <hr>
+
+                    <h3>Have an Invite Code?</h3>
+                    <input
+                        type="text"
+                        id="bestieCodeInput"
+                        placeholder="Enter your Bestie's code"
+                        autocomplete="off"
+                    >
+
+                    <button type="button" id="joinBestieBtn">
+                        Join Bestie ♡
+                    </button>
+
+                    <p id="bestieMessage"></p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
